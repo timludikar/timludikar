@@ -1,33 +1,29 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
+import styled from "styled-components";
 
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+import ZigZag from "../ZigZag";
 
-export default Header
+const Title = styled.h1`
+  text-transform: uppercase;
+  margin: 2% 0;
+`;
+
+const Bold = styled.b`
+  color: lightblue;
+`;
+
+const Header = styled.header`
+  font-family: "Oswald", sans-serif;
+  height: auto;
+`;
+
+const TopHeader = () => (
+  <Header>
+    <Title>
+      <Bold>Tim</Bold> Ludikar
+      <ZigZag />
+    </Title>
+  </Header>
+);
+
+export default TopHeader;
