@@ -1,13 +1,16 @@
 import React from "react";
 
+import Introduction from "../components/Introduction";
+import Skill from "../components/Skills";
+
 export default function Template({ data }) {
-  const { resumeJson } = data; // data.markdownRemark holds our post data
-  const { title } = resumeJson;
+  console.log(data);
+  const { resumeJson } = data;
+  const { introduction } = resumeJson;
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{title}</h1>
-      </div>
+    <div>
+      <Introduction introduction={introduction} />
+      <Skill />
     </div>
   );
 }
@@ -15,7 +18,12 @@ export default function Template({ data }) {
 export const pageQuery = graphql`
   query GetPostByPath($path: String) {
     resumeJson(path: { eq: $path }) {
-      title
+      introduction {
+        title
+        tagline
+        description
+        competencies
+      }
     }
   }
 `;

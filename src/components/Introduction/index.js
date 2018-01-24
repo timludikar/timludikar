@@ -26,15 +26,22 @@ const UnorderedList = styled.ul`
   margin-top: 0.025em;
 `;
 
-const Introduction = () => (
-  <Intro>
-    <JobTitle>Intro</JobTitle>
-    <Paragraph>Intro</Paragraph>
-    <Title>Additional competencies include:</Title>
-    <UnorderedList>
-      <li>List Item</li>
-    </UnorderedList>
-  </Intro>
-);
+const Introduction = ({ introduction }) => {
+  const { title, tagline, description, competencies } = introduction;
+
+  const competenciesCmpts = competencies.map((competency, i) => (
+    <li key={`introduction-${i}`}>{competency}</li>
+  ));
+
+  return (
+    <Intro>
+      <JobTitle>{title}</JobTitle>
+      <Paragraph>{tagline}</Paragraph>
+      <Paragraph>{description}</Paragraph>
+      <Title>Additional competencies include:</Title>
+      <UnorderedList>{competenciesCmpts}</UnorderedList>
+    </Intro>
+  );
+};
 
 export default Introduction;

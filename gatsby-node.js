@@ -17,7 +17,6 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         edges {
           node {
             path
-            title
           }
         }
       }
