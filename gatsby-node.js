@@ -9,19 +9,15 @@ const path = require("path");
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const blogPostTemplate = path.resolve(`src/templates/resumeTemplate.js`);
+  const resumeTemplate = path.resolve(`src/templates/resumeTemplate.js`);
 
   return graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allResumeJson(limit: 1000) {
         edges {
           node {
-            frontmatter {
-              path
-            }
+            path
+            title
           }
         }
       }
@@ -31,10 +27,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allResumeJson.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
+        path: node.path,
+        component: resumeTemplate,
         context: {}
       });
     });
