@@ -12,18 +12,18 @@ const Bold = styled.b`
   color: lightblue;
 `;
 
-const Header = styled.header`
+const Section = styled.header`
   font-family: "Oswald", sans-serif;
   height: auto;
 `;
 
 const TopHeader = () => (
-  <Header>
+  <Section>
     <Title>
       <Bold>Tim</Bold> Ludikar
       <ZigZag />
     </Title>
-  </Header>
+  </Section>
 );
 
 export default TopHeader;

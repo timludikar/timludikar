@@ -1,19 +1,3 @@
-{
-  /* <Section className={styles.intro}>
-<Header size={2}>{title}</Header>
-<Paragraph style={{ fontSize: 'large', textAlign: 'center' }}>{tagLine.primary}</Paragraph>
-{ tagLine.secondary &&
-  <Paragraph style={{ textAlign: 'justified' }}>{tagLine.secondary}</Paragraph>
-}
-<Header size={3}>Additional competencies include:</Header>
-<UnorderedList>
-  { competencies.map((competency, i) => {
-    return <ListItem key={i}>{competency}</ListItem>;
-  }) }
-</UnorderedList>
-</Section> */
-}
-
 import React from "react";
 import styled from "styled-components";
 
