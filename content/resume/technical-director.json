@@ -13,6 +13,40 @@
       "Can manage simultaneous time-sensitive projects with numerous stakeholders."
     ]
   },
+  "achievements": [
+    {
+      "company": "Soft Gravity",
+      "company_achievements": [
+        "Built a front-end development team from the ground up.",
+        "Successfully delivered 2, $100k development projects in 4 months.",
+        "Started the company’s first R&D Department."
+      ]
+    },
+    {
+      "company": "ViXS Systems",
+      "company_achievements": [
+        "Instigated a key department responding to the Sales, Marketing, and Engineering Directors developing new rapid prototype designs.",
+        "Promoted within 5 months to supporting Tier One customers with Linux Application support.",
+        "Managed and completed simultaneous software engineering projects.",
+        "Critical team member in the company’s largest production win."
+      ]
+    },
+    {
+      "company": "Thales Rail Signaling Solutions",
+      "company_achievements": [
+        "Fast-tracked to work on the highest profile project in the company as a Systems Design Specialist.",
+        "Received excellent reviews 2 years in a row"
+      ]
+    },
+    {
+      "company": "Institute of Engineering and Technology",
+      "company_achievements": [
+        "Elected Chairman for 2013-2015 session.",
+        "North American representative for the International Young Professionals Board.",
+        "Identified as an important up-and-comer in the organization."
+      ]
+    }
+  ],
   "skills": [
     "Organized, flexible, and dependable.",
     "Excellent problem solver and programmer.",
