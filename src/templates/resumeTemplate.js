@@ -6,11 +6,11 @@ import Skill from "../components/Skills";
 export default function Template({ data }) {
   console.log(data);
   const { resumeJson } = data;
-  const { introduction } = resumeJson;
+  const { introduction, skills } = resumeJson;
   return (
     <div>
       <Introduction introduction={introduction} />
-      <Skill />
+      <Skill skills={skills} />
     </div>
   );
 }
@@ -24,6 +24,7 @@ export const pageQuery = graphql`
         description
         competencies
       }
+      skills
     }
   }
 `;
