@@ -47,6 +47,44 @@
       ]
     }
   ],
+  "work_experience": [
+    {
+      "company": "Soft Gravity",
+      "title": "Technical Architect / Services Team Manager",
+      "start": "2013",
+      "end": "Present",
+      "location": "Toronto, Canada",
+      "experience": [
+        "Architected and managed the delivery of numerous high profile websites.",
+        "Key player for custom in-house CMS and mobile application.",
+        "Resident expert for fullstack and Mobile App development."
+      ]
+    },
+    {
+      "company": "ViXS Systems",
+      "title": "Concept Development Manager",
+      "start": "2011",
+      "end": "2013",
+      "location": "Toronto, Canada",
+      "experience": [
+        "Developed and delivered software for customers such as Motorola, DirecTV, TimeWarner, LG, and HTC.",
+        "Collaborated and managed a team of 5 to 10 developers to build demonstrations and proof of concepts.",
+        "Communicate with project stakeholders with updates, and contingency plans."
+      ]
+    },
+    {
+      "company": "Thales Rail Signaling Solutions",
+      "title": "Systems Design Specialist",
+      "start": "2009",
+      "end": "2011",
+      "location": "Toronto, Canada",
+      "experience": [
+        "Designed operational guideway layout for automated railway systems.",
+        "Provided hardware layout and software requirements for field implementation",
+        "Programmed system simulations for customer estimates."
+      ]
+    }
+  ],
   "skills": [
     "Organized, flexible, and dependable.",
     "Excellent problem solver and programmer.",

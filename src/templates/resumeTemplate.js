@@ -2,15 +2,17 @@ import React from "react";
 
 import Introduction from "../components/Introduction";
 import Achievements from "../components/Achievements";
+import Experiences from "../components/Experience";
 import Skill from "../components/Skills";
 
 export default function Template({ data }) {
   const { resumeJson } = data;
-  const { introduction, skills, achievements } = resumeJson;
+  const { introduction, skills, achievements, workExperience } = resumeJson;
   return (
     <div>
       <Introduction introduction={introduction} />
       <Achievements achievements={achievements} />
+      <Experiences experience={workExperience} />
       <Skill skills={skills} />
     </div>
   );
@@ -29,6 +31,14 @@ export const pageQuery = graphql`
       achievements {
         company
         company_achievements
+      }
+      workExperience: work_experience {
+        title
+        company
+        start
+        end
+        location
+        experience
       }
     }
   }
