@@ -85,6 +85,19 @@
       ]
     }
   ],
+  "professional_experience": [
+    {
+      "company": "Institute of Engineering and Technology (IET)",
+      "title": "Young Professional Community Committee - Chair",
+      "start": "2011",
+      "end": "Present",
+      "notes": [
+        "Architected and managed the delivery of numerous high profile websites.",
+        "Key player for custom in-house CMS and mobile application.",
+        "Resident expert for fullstack and Mobile App development."
+      ]
+    }
+  ],
   "skills": [
     "Organized, flexible, and dependable.",
     "Excellent problem solver and programmer.",
