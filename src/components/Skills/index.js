@@ -2,17 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 import Section from "../_Core/Section";
+import ul from "../_Core/UnorderedList";
 
-const UnorderedList = styled.ul``;
-const ListItem = styled.li``;
+const UnorderedList = ul``;
 
 export const Skills = ({ skills }) => {
-  const skillsCmpt = skills.map((skill, i) => (
-    <ListItem key={`skill-${i}`}>{skill}</ListItem>
-  ));
   return (
     <Section title="Skills">
-      <UnorderedList>{skillsCmpt}</UnorderedList>
+      <UnorderedList>{skills}</UnorderedList>
     </Section>
   );
 };
