@@ -1,4 +1,5 @@
 import React from "react";
+import { Page } from "hedron";
 
 import Introduction from "../components/Introduction";
 import Achievements from "../components/Achievements";
@@ -16,13 +17,13 @@ export default function Template({ data }) {
     professionalOrganizations
   } = resumeJson;
   return (
-    <div>
+    <Page>
       <Introduction introduction={introduction} />
       <Achievements achievements={achievements} />
       <Experiences experience={workExperience} />
       <Skill skills={skills} />
       <Organizations organizations={professionalOrganizations} />
-    </div>
+    </Page>
   );
 }
 
