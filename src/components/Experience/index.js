@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Row, Column } from "hedron";
 
 import Section from "../_Core/Section";
+import ul from "../_Core/UnorderedList";
 
-const Article = styled.article``;
+const Article = Row.withComponent("article");
 const Company = styled.h3`
   color: lightblue;
   text-transform: uppercase;
@@ -13,11 +15,12 @@ const Company = styled.h3`
 const Title = styled.h4`
   text-transform: uppercase;
   color: lightgrey;
-  margin: 10px 0 0 0;
+  margin: 0 0 0 0;
 `;
-const Aside = styled.aside``;
-const UnorderedList = styled.ul``;
-const ListItem = styled.li``;
+const Aside = styled.aside`
+  margin: 0 1.5em 0 0;
+`;
+const UnorderedList = ul``;
 const Main = styled.main``;
 const Paragraph = styled.p`
   margin: 0;
@@ -32,15 +35,10 @@ const asideView = (company, date, description = "") => (
 );
 
 const mainView = (title, experiences) => {
-  const experienceCmpt = experiences.map((experience, i) => {
-    return (
-      <ListItem key={`experience-${experience}-${i}`}>{experience}</ListItem>
-    );
-  });
   return (
     <Main>
       <Title>{title}</Title>
-      <UnorderedList>{experienceCmpt}</UnorderedList>
+      <UnorderedList>{experiences}</UnorderedList>
     </Main>
   );
 };
@@ -51,8 +49,12 @@ const ExperienceRender = (
 ) => {
   return (
     <Article key={`experience-${company}`}>
-      {asideView(company, `${start} - ${end}`, location)}
-      {mainView(title, experience)}
+      <Column fluid md={4}>
+        {asideView(company, `${start} - ${end}`, location)}
+      </Column>
+      <Column fluid md={8}>
+        {mainView(title, experience)}
+      </Column>
     </Article>
   );
 };
