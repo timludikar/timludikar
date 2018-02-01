@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Section from "../Section";
+import Section from "../_Core/Section";
 
 const Article = styled.article``;
 const Company = styled.h3`

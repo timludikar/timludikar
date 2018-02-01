@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "hedron";
 
-import Section from "../Section";
+import Section from "../_Core/Section";
+import ul from "../_Core/UnorderedList";
 
-const Article = styled.article`
-  margin-bottom: 2%;
-`;
+const Article = Row.withComponent("article");
+
 const Heading = styled.h3`
   color: lightblue;
   margin-top: 0;
@@ -14,28 +14,22 @@ const Heading = styled.h3`
   text-align: left;
   margin-bottom: 1%;
 `;
-const UnorderedList = styled.ul``;
-const ListItem = styled.li``;
+const UnorderedList = ul``;
 
-const Achievements = ({ achievements }) => {
+export default ({ achievements }) => {
   const achievementCmpt = achievements.map(
     ({ company, company_achievements }, i) => {
-      const company_achievementsCmpt = company_achievements.map(
-        (cmpy_achievement, i) => (
-          <ListItem key={`achievement-company-${cmpy_achievement}-${i}`}>
-            {cmpy_achievement}
-          </ListItem>
-        )
-      );
       return (
         <Article key={`achievements-${company}`}>
-          <Heading>{company}</Heading>
-          <UnorderedList>{company_achievementsCmpt}</UnorderedList>
+          <Column fluid md={4}>
+            <Heading>{company}</Heading>
+          </Column>
+          <Column fluid md={8}>
+            <UnorderedList>{company_achievements}</UnorderedList>
+          </Column>
         </Article>
       );
     }
   );
   return <Section title="Achievements">{achievementCmpt}</Section>;
 };
-
-export default Achievements;
