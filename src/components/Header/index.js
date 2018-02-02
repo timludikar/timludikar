@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import ZigZag from "../ZigZag";
+import { ZigZag } from "../_Core";
 
 const Title = styled.h1`
   text-transform: uppercase;

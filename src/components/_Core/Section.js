@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Column } from "hedron";
 
-import ZigZag from "../ZigZag";
+import ZigZag from "./ZigZag";
 
 const Section = Row.extend``;
 const Heading = styled.h2`
