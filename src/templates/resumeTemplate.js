@@ -5,7 +5,6 @@ import Introduction from "../components/Introduction";
 import Achievements from "../components/Achievements";
 import Experiences from "../components/Experience";
 import Skill from "../components/Skills";
-import Organizations from "../components/Organization";
 
 export default function Template({ data }) {
   const { resumeJson } = data;
@@ -22,7 +21,7 @@ export default function Template({ data }) {
       <Achievements achievements={achievements} />
       <Experiences experience={workExperience} />
       <Skill skills={skills} />
-      <Organizations organizations={professionalOrganizations} />
+      <Experiences experience={professionalOrganizations} />
     </Page>
   );
 }
@@ -54,7 +53,7 @@ export const pageQuery = graphql`
         company
         start
         end
-        notes
+        experience: notes
       }
     }
   }
