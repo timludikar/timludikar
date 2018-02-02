@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
+import "normalize.css";
+import { BreakpointProvider } from "hedron";
 
 import Header from "../components/Header";
-import Introduction from "../components/Introduction";
-import "./index.css";
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -16,7 +16,9 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    {children()}
+    <BreakpointProvider breakpoints={{ sm: 300, md: 568, lg: 900 }}>
+      {children()}
+    </BreakpointProvider>
   </div>
 );
 

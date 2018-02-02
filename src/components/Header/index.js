@@ -5,7 +5,7 @@ import { ZigZag } from "../_Core";
 
 const Title = styled.h1`
   text-transform: uppercase;
-  margin: 2% 0;
+  margin: 0.5em;
 `;
 
 const Bold = styled.b`
