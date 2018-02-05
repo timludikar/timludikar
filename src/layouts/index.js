@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import "normalize.css";
-import { BreakpointProvider } from "hedron";
 
 import Header from "../components/Header";
+import { ThemeProvider } from "styled-components";
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -16,9 +16,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    <BreakpointProvider breakpoints={{ sm: 300, md: 568, lg: 900 }}>
-      {children()}
-    </BreakpointProvider>
+    <ThemeProvider theme={{}}>{children()}</ThemeProvider>
   </div>
 );
 

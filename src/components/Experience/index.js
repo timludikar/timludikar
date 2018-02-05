@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Row, Column } from "hedron";
 
 import Section from "../_Core/Section";
-import ul from "../_Core/UnorderedList";
+import ul, { newUL } from "../_Core/UnorderedList";
 
 const Article = Row.withComponent("article");
 const Company = styled.h3`
@@ -20,6 +20,9 @@ const Title = styled.h4`
 const Aside = styled.aside`
   margin: 0 1.5em 0 0;
 `;
+
+console.log(newUL);
+console.log(ul);
 const UnorderedList = ul``;
 const Main = styled.main``;
 const Paragraph = styled.p`
