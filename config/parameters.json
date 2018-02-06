@@ -1,0 +1,19 @@
+[
+  {
+    "ParameterKey": "Env",
+    "ParameterValue": "dev"
+  },
+  {
+    "ParameterKey": "DomainName",
+    "ParameterValue": "timludikar.ca"
+  },
+  {
+    "ParameterKey": "SubDomain",
+    "ParameterValue": "resume"
+  },
+  {
+    "ParameterKey": "ExistingAcmCertificate",
+    "ParameterValue":
+      "arn:aws:acm:us-east-1:167433846400:certificate/d12138b8-2d31-4d05-a845-7b0fff3dfac7"
+  }
+]
