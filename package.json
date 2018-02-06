@@ -12,20 +12,20 @@
     "hedron": "^0.7.1",
     "normalize.css": "^7.0.0",
     "react-helmet": "^5.2.0",
-    "styled-components": "^3.1.5",
-    "s3-deploy": "^0.9.0"
+    "s3-deploy": "^0.9.0",
+    "styled-components": "^3.1.5"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "deploy:clean": "s3-deploy --deleteRemoved --bucket $BUCKET",
-    "deploy":
-      "gatsby build && npm run deploy:clean && s3-deploy './public/**' --cwd './public' --bucket $BUCKET",
+    "deploy": "gatsby build && npm run deploy:clean && s3-deploy './public/**' --cwd './public' --bucket $BUCKET",
     "develop": "gatsby develop",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
