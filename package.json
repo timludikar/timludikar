@@ -18,8 +18,9 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "deploy-clean": "s3-deploy --deleteRemoved",
-    "deploy": "s3-deploy './public/**' --cwd './public'",
+    "deploy:clean": "s3-deploy --deleteRemoved --bucket $BUCKET",
+    "deploy":
+      "gatsby build && npm run deploy:clean && s3-deploy './public/**' --cwd './public' --bucket $BUCKET",
     "develop": "gatsby develop",
     "format":
       "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
