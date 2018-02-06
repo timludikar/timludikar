@@ -14,6 +14,6 @@
   {
     "ParameterKey": "ExistingAcmCertificate",
     "ParameterValue":
-      "arn:aws:acm:us-east-1:167433846400:certificate/d12138b8-2d31-4d05-a845-7b0fff3dfac7"
+      "arn:aws:acm:us-east-1:167433846400:certificate/3503585a-8142-4885-b9f6-f6cb30bbc647"
   }
 ]
