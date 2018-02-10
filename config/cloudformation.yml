@@ -15,11 +15,22 @@ Parameters:
     Type: String
     Description: 'the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate.'
     AllowedPattern: "arn:aws:acm:.*"
-  PriceClass:
+  GitHubUser:
     Type: String
-    Description: 'CloudFront price class'
-    Default: 'PriceClass_100'
-    AllowedValues: ['PriceClass_100', 'PriceClass_200', 'PriceClass_All']
+    Description: GitHub User
+    Default: "timludikar"
+  GitHubRepo:
+    Type: String
+    Description: GitHub Repo to pull from. Only the Name. not the URL
+    Default: "timludikar"
+  GitHubBranch:
+    Type: String
+    Description: GitHub Branch
+    Default: "master"
+  GitHubToken:
+    NoEcho: true
+    Type: String
+    Description: Secret. It might look something like 9b189a1654643522561f7b3ebd44a1531a4287af OAuthToken with access to Repo. Go to https://github.com/settings/tokens
 
 Conditions:
   IsDev: !Equals [!Ref Env, 'dev']
@@ -115,7 +126,76 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub 'arn:aws:s3:::${WebsiteBucket}/*'
 
-
+  CodeBuildDeploySite:
+    Type: AWS::CodeBuild::Project
+    DependsOn: CodeBuildRole
+    Properties:
+      Name: !Sub ${AWS::StackName}-DeploySite
+      Description: Deploy site to S3.
+      ServiceRole: !GetAtt CodeBuildRole.Arn
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        Type: LINUX_CONTAINER
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: "aws/codebuild/nodejs:6.3.1"
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: !Sub |
+          version: 0.2
+            phases:
+              install:
+                commands:
+                  - npm install
+              build:
+                commands:
+                  - npm run build
+              post_build:
+                commands:
+                  - aws s3 cp --recursive --acl public-read ./public s3://${WebsiteBucket}/ 
+            artifacts:
+              type: zip
+              files:
+                - ./public/**/*
+  
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      RoleArn: !GetAtt CodePipelineRole.Arn
+      ArtifactStore:
+        Type: S3
+        Location: !Ref PipelineBucket
+      Stages:
+        - Name: Source
+          Actions:
+            - InputArtifacts: []
+              Name: Source
+              ActionTypeId:
+                Category: Source
+                Owner: ThirdParty
+                Version: '1'
+                Provider: GitHub
+              OutputArtifacts:
+                - Name: SourceOutput
+              Configuration:
+                Owner: !Ref GitHubUser
+                Repo: !Ref GitHubRepo
+                Branch: !Ref GitHubBranch
+                OAuthToken: !Ref GitHubToken
+        - Name: Deploy
+          Actions:
+            - Name: Artifact
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: '1'
+                Provider: CodeBuild
+              InputArtifacts:
+                - Name: SourceOutput
+              OutputArtifacts:
+                - Name: DeployOutput
+              Configuration:
+                ProjectName: !Ref CodeBuildDeploySite
             
   WebsiteCloudfront:
     Type: AWS::CloudFront::Distribution
@@ -160,7 +240,6 @@ Resources:
             Cookies:
               Forward: none
           ViewerProtocolPolicy: 'redirect-to-https'
-        PriceClass: !Ref PriceClass
         ViewerCertificate:
           AcmCertificateArn: !Ref ExistingAcmCertificate
           SslSupportMethod: 'sni-only'
